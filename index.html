@@ -11,12 +11,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Syne:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="grain" aria-hidden="true"></div>
+    <canvas id="scene3d" aria-hidden="true"></canvas>
+
     <header class="topbar">
       <a class="topbar__brand" href="#topo">K Burger</a>
       <nav class="topbar__nav" aria-label="Principal">
@@ -33,109 +36,131 @@
     </header>
 
     <main id="topo">
-      <section class="hero" aria-label="Apresentação">
-        <div class="hero__media" aria-hidden="true">
-          <img
-            class="hero__img"
-            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=80"
-            alt=""
-            width="2000"
-            height="1333"
-          />
-        </div>
-        <div class="hero__scrim" aria-hidden="true"></div>
-        <div class="hero__content">
-          <p class="hero__brand">K Burger</p>
-          <h1 class="hero__title">Lanche quente, no ponto, em Araranguá.</h1>
-          <p class="hero__lead">
-            Hambúrgueres e xis feitos na hora, da Av. Getúlio Vargas para a sua
-            mesa.
-          </p>
-          <div class="hero__actions">
-            <a
-              class="btn btn--primary"
-              href="https://wa.me/5548999324487?text=Oi!%20Quero%20fazer%20um%20pedido%20no%20K%20Burger."
-              target="_blank"
-              rel="noopener noreferrer"
-              >Pedir no WhatsApp</a
-            >
-            <a class="btn btn--ghost" href="#cardapio">Ver cardápio</a>
+      <section class="hero" aria-label="Apresentação" data-tilt-space>
+        <div class="hero__stage">
+          <div class="hero__layer hero__layer--back" data-depth="18">
+            <img
+              class="hero__img"
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=2000&q=80"
+              alt=""
+              width="2000"
+              height="1333"
+            />
           </div>
+          <div class="hero__scrim" aria-hidden="true"></div>
+          <div class="hero__orb hero__orb--a" data-depth="40" aria-hidden="true"></div>
+          <div class="hero__orb hero__orb--b" data-depth="55" aria-hidden="true"></div>
+
+          <div class="hero__content" data-depth="28">
+            <p class="hero__brand">
+              <span class="hero__brand-line">K</span>
+              <span class="hero__brand-line">Burger</span>
+            </p>
+            <h1 class="hero__title">Sabor de elite, feito na hora.</h1>
+            <p class="hero__lead">
+              Hambúrgueres e xis com acabamento de casa premium — Av. Getúlio
+              Vargas, Araranguá.
+            </p>
+            <div class="hero__actions">
+              <a
+                class="btn btn--primary"
+                href="https://wa.me/5548999324487?text=Oi!%20Quero%20fazer%20um%20pedido%20no%20K%20Burger."
+                target="_blank"
+                rel="noopener noreferrer"
+                >Reservar no WhatsApp</a
+              >
+              <a class="btn btn--ghost" href="#cardapio">Explorar cardápio</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero__scroll" aria-hidden="true">
+          <span></span>
         </div>
       </section>
 
       <section id="cardapio" class="menu section" aria-labelledby="menu-title">
         <div class="section__intro reveal">
-          <p class="eyebrow">Cardápio</p>
-          <h2 id="menu-title">O que a galera pede</h2>
+          <p class="eyebrow">Seleção</p>
+          <h2 id="menu-title">Assinaturas da casa</h2>
           <p class="section__text">
-            Burgers, xis e combos com batata — do clássico ao reforçado.
+            Três caminhos para o mesmo ritual: carne no ponto, pão quente e
+            apresentação impecável.
           </p>
         </div>
 
         <div class="menu__grid">
-          <article class="menu-item reveal">
-            <img
-              src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80"
-              alt="Hambúrguer artesanal com queijo derretido"
-              width="1200"
-              height="800"
-              loading="lazy"
-            />
-            <div class="menu-item__body">
-              <h3>Burgers</h3>
-              <p>
-                Do Burguer Kburger ao smash no ponto — carne suculenta, pão
-                macio e molho da casa.
-              </p>
+          <article class="menu-item reveal tilt-3d" data-tilt>
+            <div class="tilt-3d__inner">
+              <div class="tilt-3d__shine" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80"
+                alt="Hambúrguer artesanal com queijo derretido"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+              <div class="menu-item__body">
+                <h3>Burgers</h3>
+                <p>
+                  Do clássico Kburger ao smash preciso — suculência, molho da
+                  casa e equilíbrio de texturas.
+                </p>
+              </div>
             </div>
           </article>
 
-          <article class="menu-item reveal">
-            <img
-              src="https://images.unsplash.com/photo-1619740455993-9eeb4eb7186f?auto=format&fit=crop&w=1200&q=80"
-              alt="Sanduíche tipo xis bem recheado"
-              width="1200"
-              height="800"
-              loading="lazy"
-            />
-            <div class="menu-item__body">
-              <h3>Xis</h3>
-              <p>
-                Frango, calabresa, costela e salada — o xis gaúcho do jeito que
-                a cidade gosta.
-              </p>
+          <article class="menu-item reveal tilt-3d" data-tilt>
+            <div class="tilt-3d__inner">
+              <div class="tilt-3d__shine" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1619740455993-9eeb4eb7186f?auto=format&fit=crop&w=1200&q=80"
+                alt="Sanduíche tipo xis bem recheado"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+              <div class="menu-item__body">
+                <h3>Xis</h3>
+                <p>
+                  Frango, calabresa, costela e salada — o xis elevado ao padrão
+                  K Burger.
+                </p>
+              </div>
             </div>
           </article>
 
-          <article class="menu-item reveal">
-            <img
-              src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1200&q=80"
-              alt="Porção de batatas fritas crocantes"
-              width="1200"
-              height="800"
-              loading="lazy"
-            />
-            <div class="menu-item__body">
-              <h3>Combos</h3>
-              <p>
-                Lanche + batata frita + refri. Pedido completo, sem complicação.
-              </p>
+          <article class="menu-item reveal tilt-3d" data-tilt>
+            <div class="tilt-3d__inner">
+              <div class="tilt-3d__shine" aria-hidden="true"></div>
+              <img
+                src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1200&q=80"
+                alt="Porção de batatas fritas crocantes"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+              <div class="menu-item__body">
+                <h3>Combos</h3>
+                <p>
+                  Lanche, batata crocante e bebida — a experiência completa,
+                  sem ruído.
+                </p>
+              </div>
             </div>
           </article>
         </div>
 
         <p class="menu__note reveal">
-          Faixa de preço média:
-          <strong>R$&nbsp;20–40</strong> por pessoa · Confirme o cardápio do dia
-          no WhatsApp.
+          Experiência média
+          <strong>R$&nbsp;20–40</strong> · Cardápio do dia no WhatsApp.
         </p>
       </section>
 
       <section class="proof section section--tight" aria-label="Avaliação">
-        <div class="proof__inner reveal">
-          <p class="proof__score">4,6</p>
-          <p class="proof__label">no Google · centenas de avaliações</p>
+        <div class="proof__stage reveal">
+          <div class="proof__orb" aria-hidden="true"></div>
+          <p class="proof__score" data-count="4.6">4,6</p>
+          <p class="proof__label">Google · centenas de avaliações</p>
           <blockquote class="proof__quote">
             “O lanche é de produção rápida e diferente de muitos, servido ainda
             quente.”
@@ -145,7 +170,7 @@
 
       <section id="local" class="local section" aria-labelledby="local-title">
         <div class="local__copy reveal">
-          <p class="eyebrow">Onde estamos</p>
+          <p class="eyebrow">Presença</p>
           <h2 id="local-title">Av. Getúlio Vargas, 2476</h2>
           <p class="section__text">
             Jardim das Avenidas · Araranguá — SC · CEP 88906-018
@@ -180,20 +205,23 @@
           </div>
         </div>
 
-        <div class="local__map reveal" aria-hidden="false">
-          <iframe
-            title="Mapa do K Burger em Araranguá"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps?q=K+Burger,+Av.+Get%C3%BAlio+Vargas,+2476,+Ararangu%C3%A1+-+SC&output=embed"
-          ></iframe>
+        <div class="local__map reveal tilt-3d" data-tilt>
+          <div class="tilt-3d__inner local__map-inner">
+            <iframe
+              title="Mapa do K Burger em Araranguá"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=K+Burger,+Av.+Get%C3%BAlio+Vargas,+2476,+Ararangu%C3%A1+-+SC&output=embed"
+            ></iframe>
+          </div>
         </div>
       </section>
 
       <section class="cta-band" aria-labelledby="cta-title">
+        <div class="cta-band__wash" aria-hidden="true"></div>
         <div class="cta-band__inner reveal">
-          <h2 id="cta-title">Fome batendo?</h2>
-          <p>Chama no Zap e garante o seu antes da fila.</p>
+          <h2 id="cta-title">A mesa te espera.</h2>
+          <p>Um toque no Zap e o ritual começa.</p>
           <a
             class="btn btn--primary"
             href="https://wa.me/5548999324487?text=Oi!%20Quero%20fazer%20um%20pedido%20no%20K%20Burger."
@@ -225,6 +253,13 @@
       <p class="footer__copy">© <span id="year"></span> K Burger · Araranguá</p>
     </footer>
 
-    <script src="main.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module" src="main.js"></script>
   </body>
 </html>

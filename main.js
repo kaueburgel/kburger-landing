@@ -116,6 +116,31 @@ tiltCards.forEach((card) => {
   card.addEventListener("pointercancel", reset);
 });
 
+/* ---------- Cinema videos ---------- */
+const cinemaVideos = document.querySelectorAll(".cinema__video, .menu-item__video");
+
+if (reducedMotion) {
+  cinemaVideos.forEach((video) => {
+    video.removeAttribute("autoplay");
+    video.pause();
+  });
+} else if ("IntersectionObserver" in window) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (!(video instanceof HTMLVideoElement)) return;
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+  cinemaVideos.forEach((video) => videoObserver.observe(video));
+}
 /* ---------- Three.js ambient luxury scene ---------- */
 const canvas = document.getElementById("scene3d");
 

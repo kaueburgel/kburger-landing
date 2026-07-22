@@ -112,13 +112,20 @@
           <article class="menu-item reveal tilt-3d" data-tilt>
             <div class="tilt-3d__inner">
               <div class="tilt-3d__shine" aria-hidden="true"></div>
-              <img
-                src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1200&q=80"
-                alt="Sanduíche tipo xis bem recheado"
-                width="1200"
-                height="800"
-                loading="lazy"
-              />
+              <div class="menu-item__media">
+                <video
+                  class="menu-item__video"
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  poster="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1200&q=80"
+                  aria-label="Close-up de alguém saboreando um xis"
+                >
+                  <source src="assets/xis-cinema.mp4" type="video/mp4" />
+                </video>
+              </div>
               <div class="menu-item__body">
                 <h3>Xis</h3>
                 <p>
@@ -154,6 +161,33 @@
           Experiência média
           <strong>R$&nbsp;20–40</strong> · Cardápio do dia no WhatsApp.
         </p>
+      </section>
+
+      <section class="cinema" aria-labelledby="cinema-title">
+        <div class="cinema__letterbox" aria-hidden="true"></div>
+        <div class="cinema__frame reveal">
+          <video
+            class="cinema__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="https://images.unsplash.com/photo-1553979459-d2229ba7433b?auto=format&fit=crop&w=1600&q=80"
+          >
+            <source src="assets/xis-cinema.mp4" type="video/mp4" />
+          </video>
+          <div class="cinema__scrim" aria-hidden="true"></div>
+          <div class="cinema__copy">
+            <p class="eyebrow">Take 01 · Xis</p>
+            <h2 id="cinema-title">Close-up. Primeiro mordida. Silêncio.</h2>
+            <p>
+              O ritual em câmera lenta — pão, recheio e aquele momento em que
+              o sabor rouba a cena.
+            </p>
+          </div>
+        </div>
+        <div class="cinema__letterbox cinema__letterbox--bottom" aria-hidden="true"></div>
       </section>
 
       <section class="proof section section--tight" aria-label="Avaliação">
